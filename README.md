@@ -25,3 +25,6 @@ $ npm start
 > This will open a page in browser.
 > Select your device platefrom and scan the code shown in the browser and wait for the app to open.
 > All Done!
+
+![Search Screen](/img/search_screen.png)
+![Watchlist Screen](/img/watchlist_screen.png)
