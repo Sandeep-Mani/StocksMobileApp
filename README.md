@@ -9,7 +9,7 @@ A demo matket watch app on react native.
 
 - In the cloned project goto AppConfig.js and replace the `<ServiceUrl>` with your service url;
 - Change `allStock` to point to all stock Symbol api.
-- Change `history` to point to History api. 
+- Change `history` to point to symbol price History api. 
 
 ### To build:
 ```sh
@@ -24,3 +24,4 @@ $ npm start
 ```
 > This will open a page in browser.
 > Select your device platefrom and scan the code shown in the browser and wait for the app to open.
+> All Done!
