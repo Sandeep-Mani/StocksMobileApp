@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { FlatList, Text, TextInput, Icon } from "react-native";
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
-import { useStocksContext } from "../contexts/StocksContext";
-import { scaleSize } from "../constants/Layout";
 import { Ionicons } from "@expo/vector-icons";
-import StocksScreen from "../screens/StocksScreen";
+import React, { useEffect, useState } from "react";
+import { FlatList, Keyboard, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import AppConfig from "../AppConfig";
+import { scaleSize } from "../constants/Layout";
+import { useStocksContext } from "../contexts/StocksContext";
 
 function ListItem(props) {
   function handleOnPress(symbol) {
@@ -81,7 +75,7 @@ export default function SearchScreen({ navigation }) {
     // https://reactnative.dev/docs/network
     // fetch usage
 
-    fetch(ServerURL + "/all")
+    fetch(AppConfig.ServiceUrl + AppConfig.allStock)
       .then((response) => response.json())
       .then((json) => {
         const stocks = json;

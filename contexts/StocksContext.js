@@ -1,5 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AsyncStorage } from "react-native";
+import AppConfig from "../AppConfig";
 
 const StocksContext = React.createContext();
 
@@ -57,7 +58,7 @@ export const useStocksContext = () => {
   }, []);
 
   return {
-    ServerURL: "",
+    ServerURL: AppConfig.ServiceUrl,
     watchList: state,
     addToWatchlist,
   };

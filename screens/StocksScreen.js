@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  FlatList,
-  TouchableWithoutFeedback,
-  Text,
-} from "react-native";
-import { useStocksContext } from "../contexts/StocksContext";
+import React, { useEffect, useState } from "react";
+import { FlatList, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
+import AppConfig from "../AppConfig";
 import { scaleSize } from "../constants/Layout";
+import { useStocksContext } from "../contexts/StocksContext";
 
 function ListItem(props) {
   function handleOnPress(symbol, clickHandler) {
@@ -122,7 +117,7 @@ export default function StocksScreen({ route }) {
     let stocks = state.stocks;
 
     for (let i = 0; i < symbols.length; i++) {
-      let URL = ServerURL + "/history?symbol=" + symbols[i];
+      let URL = ServerURL + AppConfig.history + symbols[i];
 
       fetch(URL)
         .then((response) => response.json())
@@ -150,53 +145,6 @@ export default function StocksScreen({ route }) {
           // console.error(error);
         });
     }
-
-    // screen opened for first time
-    // if (stocks.length === 0) {
-
-    // } else if (symbols.length > stocks.length) {
-    //   // new symbol added
-    //   var index;
-    //   let found = false;
-
-    //   for (let i = 0; i < stocks.length; i++) {
-    //     if (symbols[i] !== stocks[i].symbol) {
-    //       found = true;
-    //       index = i;
-    //       break;
-    //     }
-    //   }
-
-    //   if (found === false) {
-    //     // symbol is last
-    //     index = stocks.length;
-    //   }
-
-    //   let URL = ServerURL + "/history?symbol=" + symbols[index];
-
-    //   fetch(URL)
-    //     .then((response) => response.json())
-    //     .then((json) => {
-    //       let stocks = state.stocks;
-    //       let selectedStock = state.selectedStock;
-    //       let exist = false;
-
-    //       for (let j = 0; j < stocks.length; j++) {
-    //         if (json[0].symbol === stocks[j].symbol) {
-    //           exist = true;
-    //         }
-    //       }
-
-    //       if (!exist) {
-    //         stocks.splice(index, 0, json[0]);
-    //       }
-
-    //       setState({ stocks: stocks, selectedStock: selectedStock });
-    //     })
-    //     .catch((error) => {
-    //       // console.error(error);
-    //     });
-    // }
   }, [watchList]);
 
   function listClickHandler(symbol) {

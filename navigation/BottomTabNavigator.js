@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
-import StocksScreen from '../screens/StocksScreen';
 import SearchScreen from '../screens/SearchScreen';
+import StocksScreen from '../screens/StocksScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Search';
