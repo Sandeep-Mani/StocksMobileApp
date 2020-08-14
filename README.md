@@ -1,6 +1,6 @@
 # StocksMobileApp
 
-A demo matket watch app on react native.
+A Stock Market watch app on react native.
 
 ### Prerequisites
 
